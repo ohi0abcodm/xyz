@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $mail->SMTPSecure = 'tls';
   $mail->SMTPAuth = true;
   $mail->Username = 'olajidehabib3@gmail.com';
-  $mail->Password = 'your-email-password';
+  $mail->Password = 'Habzy@@1234';
 
   // Set the sender and recipient
   $mail->setFrom('olajidehabib3@gmail.com', 'Your Name');
